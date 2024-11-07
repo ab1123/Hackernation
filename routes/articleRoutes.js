@@ -17,7 +17,7 @@ router.post("/fetch-news", async (req, res) => {
 // Get all articles' titles and images
 router.get("/articles", async (req, res) => {
   try {
-    const articles = await Article.find({}, "title image -_id").exec();
+    const articles = await Article.find({}, "title slug image -_id").exec();
     res.status(200).json(articles);
   } catch (error) {
     res
